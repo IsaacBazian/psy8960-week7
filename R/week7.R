@@ -22,6 +22,12 @@ week7_tbl <- read_csv(file = "../data/week3.csv", col_types = "?Tffiiiiiiiiii") 
 week7_tbl %>%
   select(q1:q10) %>% 
   ggpairs(lower = list(continuous = wrap("points", position = position_jitter(width = 0.2, height = 0.2)))) #Check later if all this extra specification is required/desired
+(ggplot(week7_tbl, aes(timeStart, q1)) +
+  geom_point() +
+  labs(x = "Date of Experiment", y = "Q1 Score")) %>% 
+  ggsave("../figs/fig1.png", ., width = 16, height = 9, units = "in")
+
+
 
   
 
