@@ -40,8 +40,10 @@ week7_tbl %>%
   ggsave("../figs/fig3.png", ., width = 8, height = 4.5, units = "in")
 
 
- 
-
+(ggplot(week7_tbl, aes(gender, timeSpent)) +
+  geom_boxplot() +
+  labs(x = "Gender", y = "Time Elapsed (mins)")) %>% 
+  ggsave("../figs/fig4.png", ., width = 8, height = 4.5, units = "in")
 
 
 
