@@ -23,21 +23,29 @@ week7_tbl %>%
   select(q1:q10) %>% 
   ggpairs(lower = list(continuous = wrap("points", position = position_jitter(width = 0.2)))) #Check later if all this extra specification is required/desired
 (ggplot(week7_tbl, aes(timeStart, q1)) +
-  geom_point(size = 2.5) +
+  geom_point(size = 1.5) +
   labs(x = "Date of Experiment", y = "Q1 Score")) %>% 
-  ggsave("../figs/fig1.png", ., width = 16, height = 9, units = "in")
+  ggsave("../figs/fig1.png", ., width = 8, height = 4.5, units = "in")
 
 
 (ggplot(week7_tbl, aes(q1, q2, color = gender)) +
-  geom_point(position = position_jitter(width = 0.2), size = 2.5) +
+  geom_point(position = position_jitter(width = 0.2), size = 1.5) +
   labs(color = "Participant Gender")) %>% 
-  ggsave("../figs/fig2.png", ., width = 16, height = 9, units = "in")
+  ggsave("../figs/fig2.png", ., width = 8, height = 4.5, units = "in")
+
+(ggplot(week7_tbl, aes(q1, q2)) +
+  geom_point(size = 1.5, position = position_jitter(width = 0.2)) +
+  facet_grid(cols = vars(gender)) +
+  labs(x = "Score on Q1", y = "Score on Q2")) %>% 
+  ggsave("../figs/fig3.png", ., width = 8, height = 4.5, units = "in")
+
+
+ 
 
 
 
 
-
-  
+ 
 
 
 
