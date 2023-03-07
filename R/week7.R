@@ -1,7 +1,7 @@
 # Script Settings and Resources
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 library(tidyverse)
-
+library(GGally)
 
 
 
@@ -19,5 +19,11 @@ week7_tbl <- read_csv(file = "../data/week3.csv", col_types = "?Tffiiiiiiiiii") 
 
 
 # Visualization
+week7_tbl %>%
+  select(q1:q10) %>% 
+  ggpairs(lower = list(continuous = wrap("points", position = position_jitter(width = 0.2, height = 0.2)))) #Check later if all this extra specification is required/desired
+
+  
+
 
 
