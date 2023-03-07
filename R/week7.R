@@ -21,11 +21,19 @@ week7_tbl <- read_csv(file = "../data/week3.csv", col_types = "?Tffiiiiiiiiii") 
 # Visualization
 week7_tbl %>%
   select(q1:q10) %>% 
-  ggpairs(lower = list(continuous = wrap("points", position = position_jitter(width = 0.2, height = 0.2)))) #Check later if all this extra specification is required/desired
+  ggpairs(lower = list(continuous = wrap("points", position = position_jitter(width = 0.2)))) #Check later if all this extra specification is required/desired
 (ggplot(week7_tbl, aes(timeStart, q1)) +
-  geom_point() +
+  geom_point(size = 2.5) +
   labs(x = "Date of Experiment", y = "Q1 Score")) %>% 
   ggsave("../figs/fig1.png", ., width = 16, height = 9, units = "in")
+
+
+(ggplot(week7_tbl, aes(q1, q2, color = gender)) +
+  geom_point(position = position_jitter(width = 0.2), size = 2.5) +
+  labs(color = "Participant Gender")) %>% 
+  ggsave("../figs/fig2.png", ., width = 16, height = 9, units = "in")
+
+
 
 
 
