@@ -21,7 +21,7 @@ week7_tbl <- read_csv(file = "../data/week3.csv", col_types = "?Tffiiiiiiiiii") 
 # Visualization
 week7_tbl %>%
   select(q1:q10) %>% 
-  ggpairs(lower = list(continuous = wrap("points", position = position_jitter(width = 0.2)))) #Check later if all this extra specification is required/desired
+  ggpairs()
 (ggplot(week7_tbl, aes(timeStart, q1)) +
   geom_point(size = 1.5) +
   labs(x = "Date of Experiment", y = "Q1 Score")) %>% 
