@@ -50,5 +50,5 @@ week7_tbl %>%
   geom_point(size = 1.5, position = position_jitter(width = 0.2)) +
   geom_smooth(method = "lm", se = F, linewidth = 1) +
   labs(x = "Score on Q5", y = "Score on Q7", color = "Experimental Condition") +
-  theme(legend.position = "bottom", legend.background = element_rect(fill = "lightgrey"))) %>% 
+  theme(legend.position = "bottom", legend.background = element_rect(fill = "#e0e0e0"))) %>% 
   ggsave("../figs/fig5.png", ., width = 8, height = 4.5, units = "in", dpi = 300)
